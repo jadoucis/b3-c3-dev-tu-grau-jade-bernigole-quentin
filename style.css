@@ -134,12 +134,24 @@
   #container #equals {
     background-color: #2ecc71;
     box-shadow: 0 3px 0 #155d34;
+    width: 340px;
   }
   
   #container #equals:active {
     box-shadow: 0 2px 0 #155d34;
-  } 
+  }
 
+  #container #zero {
+    width: 165px;
+  }
+
+  #container #scientist {
+    width: 90px;
+    height: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
   @media only screen and (max-width: 400px) {
     header {
       padding: 28px 0;
