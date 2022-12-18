@@ -1,4 +1,4 @@
-import {add, substract, multiply, divide} from './operations.js'
+import {add, substract, multiply, divide, square, sqrt, power} from './operations.js'
 
 const screen = document.querySelector("#screen");
 const clearButton = document.querySelector("#clear");
@@ -24,7 +24,7 @@ const allClear = () => {
 };
 
 const calculate = () => {
-    if (operator && result === "" && ![" ", "+", "-", "."].includes(screen.value[screen.value.length - 1])) {
+    if (operator && result === "" && ![" ", "+", "-", ".", "²", "V", "^"].includes(screen.value[screen.value.length - 1])) {
         secondNumber = screen.value.substring(firstNumber.length + 3);
 
         switch (operator) {
@@ -39,6 +39,15 @@ const calculate = () => {
                 break;
             case "/":
                 result = Number(divide(firstNumber, secondNumber).toFixed(3));
+                break;
+            case "²":
+                result = Number(square(firstNumber).toFixed(3));
+                break;
+            case "V":
+                result = Number(sqrt(secondNumber).toFixed(3));
+                break;
+            case "^":
+                result = Number(power(firstNumber, secondNumber).toFixed(3));
                 break;
             default:
         }
@@ -73,7 +82,7 @@ decimalButton.addEventListener("click", () => {
         screen.value += ".";
     } else if (!isFloat) {
         isFloat = true;
-        if ([" ", "+", "-"].includes(screen.value[screen.value.length - 1])) {
+        if ([" ", "+", "-", "²", "V", "^"].includes(screen.value[screen.value.length - 1])) {
             screen.value += "0.";
         } else {
             screen.value += ".";
@@ -90,7 +99,7 @@ document.querySelectorAll(".operator").forEach((operatorButton) => {
             operator = operatorButton.dataset.operator;
             result = "";
             screen.value = `${firstNumber} ${operatorButton.textContent} `;
-        } else if (operator && ![" ", "+", "-", "."].includes(screen.value[screen.value.length - 1])) {
+        } else if (operator && ![" ", "+", "-", ".", "²", "^", "V"].includes(screen.value[screen.value.length - 1])) {
             calculate();
             isFloat = false;
             signOn = false;
@@ -104,7 +113,7 @@ document.querySelectorAll(".operator").forEach((operatorButton) => {
             operator = operatorButton.dataset.operator;
             screen.value += ` ${operatorButton.textContent} `;
         } else if (!signOn
-            && !["*", "/"].includes(operatorButton.dataset.operator)
+            && !["*", "/", "²", "V", "^"].includes(operatorButton.dataset.operator)
             && screen.value[screen.value.length - 1] === " ") {
             signOn = true;
             screen.value += operatorButton.textContent;
