@@ -117,8 +117,9 @@ document.querySelectorAll(".operator").forEach((operatorButton) => {
             && screen.value[screen.value.length - 1] === " ") {
             signOn = true;
             screen.value += operatorButton.textContent;
-        }
+        } 
     });
 });
 
 equalsButton.addEventListener("click", calculate);
+
