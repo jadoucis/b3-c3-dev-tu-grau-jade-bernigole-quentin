@@ -39,4 +39,4 @@ The first things to do after pulling the project are :
 ## Starting the project
 To start the project, click on "Live Server" on the blue band at the bottom of VSC.
 
-All these informations are in the documentation's file
+All these informations are in the documentation's file, you can take it in the folder "src"
