@@ -1,11 +1,12 @@
 import {add, substract, multiply, divide} from './operations.js'
 
+// Take the informations that we need for next step
 const screen = document.querySelector("#screen");
 const clearButton = document.querySelector("#clear");
 const equalsButton = document.querySelector("#equals");
 const decimalButton = document.querySelector("#decimal");
 
-
+// Set parameters
 let isFloat = false;
 let signOn = false;
 let firstNumber = "";
@@ -13,6 +14,7 @@ let operator = "";
 let secondNumber = "";
 let result = "";
 
+// Function for update values
 const allClear = () => {
     isFloat = false;
     signOn = false;
@@ -23,6 +25,7 @@ const allClear = () => {
     screen.value = "0";
 };
 
+// Function for make calcul of items click
 const calculate = () => {
     if (operator && result === "" && ![" ", "+", "-", "."].includes(screen.value[screen.value.length - 1])) {
         secondNumber = screen.value.substring(firstNumber.length + 3);
@@ -46,8 +49,10 @@ const calculate = () => {
     }
 };
 
+// Event on clear click
 clear.addEventListener("click", allClear);
 
+// Event on number click
 document.querySelectorAll(".number").forEach((numberButton) => {
     numberButton.addEventListener("click", () => {
         if (screen.value === "0") {
@@ -66,6 +71,7 @@ document.querySelectorAll(".number").forEach((numberButton) => {
     });
 });
 
+// Decimal Numbers
 decimalButton.addEventListener("click", () => {
     if (result || result === 0) {
         allClear();
@@ -81,6 +87,7 @@ decimalButton.addEventListener("click", () => {
     }
 });
 
+// Operator used
 document.querySelectorAll(".operator").forEach((operatorButton) => {
     operatorButton.addEventListener("click", () => {
         if (result || result === 0) {
@@ -112,4 +119,5 @@ document.querySelectorAll(".operator").forEach((operatorButton) => {
     });
 });
 
+// Event on equals Button
 equalsButton.addEventListener("click", calculate);
