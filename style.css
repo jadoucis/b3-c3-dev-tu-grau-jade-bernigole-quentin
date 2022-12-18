@@ -16,15 +16,22 @@
   }
   
   header h1 {
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-image: linear-gradient(to right bottom, #fff, #777);
-    color: transparent;
+    color: #EAEBEC;
     font-size: 40px;
     letter-spacing: 2px;
     text-align: center;
     text-transform: uppercase;
   }
+
+  header h2{
+    text-align: center;
+  }
+
+  header a {
+    color: #EAEBEC;
+    font-size: 20px;
+  }
+
   
   main {
     background-color: #EAEBEC;
@@ -131,8 +138,8 @@
   
   #container #equals:active {
     box-shadow: 0 2px 0 #155d34;
-  }
-  
+  } 
+
   @media only screen and (max-width: 400px) {
     header {
       padding: 28px 0;
